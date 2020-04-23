@@ -3,3 +3,10 @@
         
         输入main.py
         上传其他组件
+        
+        
+ 依赖：
+        !pip install pyTelegramBotAPI
+        !pip install requests
+        !pip install pyquery
+        !pip install BeautifulSoup4
