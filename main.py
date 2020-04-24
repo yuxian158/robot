@@ -4,7 +4,7 @@ from telebot import types,util
 from other import analysis,sec_wea,ocr
 from telebot.types import InlineKeyboardMarkup,InlineKeyboardButton
 from av import av
-from xiao import start_xiao
+from xiao import start_xiao,start_voice
 
 TOKEN = '1150068914:AAGKIc1Pl7YLcAsb2aZDIxF4kYVCHoMB7Ks'
 
@@ -101,15 +101,22 @@ def command_default(m):
         state_num = 2
         bot.send_message(cid, '输入城市')
     elif m.text == '小说':
-        splitted_text = util.split_string(start_xiao(), 3000)
+        date = start_xiao()
+        date = date.replace("\n", "")
+        date = date.replace(" ", "")
+        splitted_text = util.split_string(date, 3000)
         for text in splitted_text:
             bot.send_message(cid, text)
+    elif m.text=='有声':
+        url = start_voice()
+        bot.send_voice(cid,url)
     elif m.text == '图片':
         bot.send_message(cid, "Please choose your image now", reply_markup=imageSelect_pic) #展开图片选择键盘
     elif m.text == '一言':
         bot.send_message(cid,analysis())
     elif m.text in cate_dic:
         bot.send_chat_action(cid, 'upload_photo')
+        bot.send_media_group()
         data = photo_2(cate_dic[m.text])
         if data :
             bot.send_photo(cid,data)       #发送图片并隐藏二级键盘
