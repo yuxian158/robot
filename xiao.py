@@ -32,8 +32,10 @@ def xiao_second(url):#小说页解析
 
 def voice_secone(url):
     data=get_url(url).text
+    print(data)
     data = pq(data)
     data = data('video')('source').attr('src')
+    print(data)
     url = 'https://' + parse.quote(data[8:len(data)])
     return url
 
@@ -53,9 +55,12 @@ def xiao(url_first):        #小说列表页获取小说页
 def voice(url):
     data = get_url(url).text
     resulsts = re.findall('/yousheng/(\d{5}).html',data,re.S)
-    i = random.randint(0,len(resulsts)-1)
-    url = 'https://www.hht979.com/yousheng/'+resulsts[i]+'.html'
-    return voice_secone(url)
+    if not resulsts:
+        i = random.randint(0,len(resulsts)-1)
+        url = 'https://www.hht979.com/yousheng/'+resulsts[i]+'.html'
+        return voice_secone(url)
+    else:
+        return None
 def generate(): #获取随机页码
     i=random.randint(0,7)
     j=random.randint(1,30)

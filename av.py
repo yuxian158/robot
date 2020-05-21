@@ -25,9 +25,9 @@ def av(avnum):
             inform.append(data('tr').text() + '   ' + data('tr a').attr('href'))
         return inform
     else:return inform
-data='番号ABP-417'
-print(re.match('番号(.*?-.*[^\D])',data))
-print(re.search('番号(.*?-.*[^\D])',data))
-if re.match('番号(.*?-.*[^\D])', data):
-    mags = av(re.search('番号(.*?-.*[^\D])', data).group(1))
-    print(mags)
+# data='番号ABP-417'
+# # print(re.match('番号(.*?-.*[^\D])',data))
+# # print(re.search('番号(.*?-.*[^\D])',data))
+# # if re.match('番号(.*?-.*[^\D])', data):
+# #     mags = av(re.search('番号(.*?-.*[^\D])', data).group(1))
+# #     print(mags)
