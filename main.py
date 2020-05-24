@@ -4,7 +4,7 @@ from telebot import types,util
 from other import analysis,sec_wea,ocr,search_title,voice_ocr
 from telebot.types import InlineKeyboardMarkup,InlineKeyboardButton
 from av import av
-from xiao import start_xiao,start_voice
+# from xiao import start_xiao,start_voice
 
 TOKEN = '1150068914:AAGKIc1Pl7YLcAsb2aZDIxF4kYVCHoMB7Ks'
 
@@ -97,17 +97,17 @@ def command_default(m):
     elif m.text == '天气':
         state_num = 2
         bot.send_message(cid, '输入城市')
-    elif m.text == '小说' and cid in knownUsers:
-        date = start_xiao()
-        date = date.replace("\n", "")
-        date = date.replace(" ", "")
-        splitted_text = util.split_string(date, 3000)
-        for text in splitted_text:
-            bot.send_message(cid, text)
-    elif m.text=='有声' and cid in knownUsers:
-        url = start_voice()
-        if url:
-            bot.send_voice(cid,url)
+    # elif m.text == '小说' and cid in knownUsers:
+    #     date = start_xiao()
+    #     date = date.replace("\n", "")
+    #     date = date.replace(" ", "")
+    #     splitted_text = util.split_string(date, 3000)
+    #     for text in splitted_text:
+    #         bot.send_message(cid, text)
+    # elif m.text=='有声' and cid in knownUsers:
+    #     url = start_voice()
+    #     if url:
+    #         bot.send_voice(cid,url)
     elif m.text == '图片' and cid in knownUsers:
         bot.send_message(cid, "Please choose your image now", reply_markup=imageSelect_pic) #展开图片选择键盘
     elif m.text == '一言':
