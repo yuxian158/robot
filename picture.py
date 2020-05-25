@@ -14,8 +14,8 @@ def get_url(url):   #访问网站返回数据
 def photo_l():
     url='https://mmslt1.com/tp/girl/Pantyhose/B-0'+str(random.randint(10,99))+'/'+str(random.randint(10,30))+'.jpg'
     data=get_url(url).content
-    # with open('gril.png', 'wb') as f:
-    #     f.write(data)
+    with open('gril.png', 'wb') as f:
+        f.write(data)
 
 
 def photo_2(num):

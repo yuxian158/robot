@@ -5,13 +5,15 @@ from bs4 import BeautifulSoup
 import re
 from urllib import parse
 
-data = get_url('https://www.maomiav.com/assets/js/custom/config.js').text
-maomi = re.findall('www.*?.com', data)[2]
-r = get_url('https://'+maomi)
-reditList = r.history
-maomi=reditList[len(reditList)-1].headers["location"]
-maomi = re.search('www.(.*?).com',maomi).group(1)
-
+# data = get_url('https://www.maomiav.com/assets/js/custom/config.js').text
+# maomi = re.findall('www.*?.com', data)[2]
+# r = get_url('https://'+maomi)
+# print(r.text)
+# reditList = r.history
+# print(reditList)
+# maomi=reditList[len(reditList)-1].headers["location"]
+# maomi = re.search('www.(.*?).com',maomi).group(1)
+maomi = 'abea553f0b134002.pw'
 
 first_list_xiao=[
             'https://www.'+maomi+'.com/xiaoshuo/list-%E9%83%BD%E5%B8%82%E6%BF%80%E6%83%85',
@@ -85,5 +87,5 @@ def start_voice():
     return mag
 
 
-
+print(start_xiao())
 
